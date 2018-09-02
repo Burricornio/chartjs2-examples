@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ChartJS - Line Chart</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Line chart example</h1>
+
+    <div style="width: 900px; margin: 0 auto;">
+      <!-- Canvas en el que pintamos la gráfica -->
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- Importa ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script>
+      // Seleccionamos el elemno canvas y lo preparamos para pintar en él
+      var ctx = document.getElementById('myChart').getContext('2d');
+
+      // Cremaos una gráfica dentro del canvas
+      var chart = new Chart(ctx, {
+        // Tipo de gráfica
+        type: 'line',
+
+        // Datos dentro de un dataset
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novemver", "December"],
+
+          datasets: [
+            // Dataset 1
+            {
+              // Texto etiqueta legend
+              label: "First dataset",
+              // Color de fondo
+              backgroundColor: 'rgba(64, 255, 211, 1)',
+              // Color del borde
+              borderColor: 'rgba(64, 255, 211, 1)',
+              // Anchura del borde
+              borderWidth: 4,
+              // Tamaño del puntero
+              pointRadius: 6,
+              // Color del puntero
+              pointBackgroundColor: 'white',
+              // Tamaño del puntero al situarnos encima
+              pointHoverRadius: 8,
+              // Color del puntero al situarnos encima
+              pointHoverBackgroundColor: 'coral',
+              // Tamaño del área con la que se activan los tooltips
+              pointHitRadius: 25,
+              // Completa la gráfica en el caso de que falte algún dato (En este ejemplo falta 'Octubre') - Por defecto es false
+              spanGaps: true,
+              // Grado de curvatura de las líneas de la gráfica (1 serían rectas)
+              lineTension: 0.4,
+              // Eliminar las líneas. Por defecto 'true'
+              showLine: true,
+              // Gráfica con escalones entre los puntos. Por defecto 'false'
+              steppedLine: false,
+              // Datos del dataset
+              data: [0, 10, 5, 2, 20, 30, 45, 20, 30, , 30, 60],
+            },
+            // Dataset 2
+            {
+              // Texto etiqueta legend
+              label: "Second dataset",
+              // Color de fondo
+              backgroundColor: 'rgba(255, 33, 238, 1)',
+              // Color del borde
+              borderColor: 'rgba(255, 33, 238, 1)',
+              // Anchura del borde
+              borderWidth: 4,
+              // Tamaño del puntero
+              pointRadius: 6,
+              // Color del puntero
+              pointBackgroundColor: 'white',
+              // Tamaño del puntero al situarnos encima
+              pointHoverRadius: 8,
+              // Color del puntero al situarnos encima
+              pointHoverBackgroundColor: 'coral',
+              // Tamaño del área con la que se activan los tooltips
+              pointHitRadius: 25,
+              // Completa la gráfica en el caso de que falte algún dato (En este ejemplo falta 'Octubre') - Por defecto es false
+              spanGaps: true,
+              // Grado de curvatura de las líneas de la gráfica (1 serían rectas)
+              lineTension: 0.4,
+              // Eliminar las líneas. Por defecto 'true'
+              showLine: true,
+              // Gráfica con escalones entre los puntos. Por defecto 'false'
+              steppedLine: false,
+              // Datos del dataset
+              data: [10, 30, 50, 25, 30, 10, 25, 30, 40, , 35, 15],
+            },
+            // Dataset 3
+            {
+              // Texto etiqueta legend
+              label: "Third dataset",
+              // Color de fondo
+              backgroundColor: 'rgba(96, 110, 232, 1)',
+              // Color del borde
+              borderColor: 'rgba(96, 110, 232, 1)',
+              // Anchura del borde
+              borderWidth: 4,
+              // Tamaño del puntero
+              pointRadius: 6,
+              // Color del puntero
+              pointBackgroundColor: 'white',
+              // Tamaño del puntero al situarnos encima
+              pointHoverRadius: 8,
+              // Color del puntero al situarnos encima
+              pointHoverBackgroundColor: 'coral',
+              // Tamaño del área con la que se activan los tooltips
+              pointHitRadius: 25,
+              // Completa la gráfica en el caso de que falte algún dato (En este ejemplo falta 'Octubre') - Por defecto es false
+              spanGaps: true,
+              // Grado de curvatura de las líneas de la gráfica (1 serían rectas)
+              lineTension: 0.4,
+              // Eliminar las líneas. Por defecto 'true'
+              showLine: true,
+              // Gráfica con escalones entre los puntos. Por defecto 'false'
+              steppedLine: false,
+              // Datos del dataset
+              data: [5, 30, 50, 25, 10, 20, 35, 10, 30, , 20, 50],
+            }
+          ]
+        },
+        // Opciones de configuración
+         options: {
+           // Opciones leyenda
+           legend: {
+             // Mostraru ocultar leyenda
+             display: true,
+             // Cambiar posición
+             position: 'right',
+             // Invierte el orden de las leyendas
+             reverse: true,
+             // Configuración de las etiquetas
+             labels: {
+               fontColor: 'gray',
+               padding: 20
+             },
+             // Evento onClick
+             onClick: alertBox,
+             // Evento onHover
+             onHover: alertBox2
+           },
+           // Opciones de la cuadrícula
+           scales: {
+             // Eje X
+             xAxes: [{
+               gridLines: {
+                 display: true
+               },
+               // Oculta o muestra las labels del eje X
+               ticks: {
+                 display: true
+               }
+             }],
+             // Eje Y
+             yAxes: [{
+               // Apila las gráficas para que se vean todas bien
+               stacked: true,
+               gridLines: {
+                 display: true
+               },
+               // Oculta o muestra las labels del eje Y
+               ticks: {
+                 display: true
+               }
+             }]
+           }
+         }
+    });
+
+    function alertBox() {
+      alert('Hello chart js click');
+    }
+
+    function alertBox2() {
+      alert('Hello chart js hover');
+    }
+    </script>
+  </body>
+</html>

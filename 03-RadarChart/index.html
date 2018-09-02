@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ChartJS - Radar Chart</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Radar chart example</h1>
+
+    <div style="width: 700px; margin: 0 auto">
+
+      <!-- Canvas en el que pintamos la gráfica -->
+      <canvas id="myChart"></canvas>
+
+    </div>
+
+    <!-- Importa ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script>
+      // Seleccionamos el elemno canvas y lo preparamos para pintar en él
+      var ctx = document.getElementById('myChart').getContext('2d');
+
+      // Cremaos una gráfica dentro del canvas
+      var chart = new Chart(ctx, {
+        // Tipo de gráfica
+        type: 'radar',
+        // Datos
+        data: {
+          // Etiquetas eje X
+          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          datasets: [
+            // Propiedades dataset 1
+            {
+              label: 'First dataset',
+              backgroundColor: 'rgba(64, 255, 211, .2)',
+              borderColor: 'rgba(64, 255, 211, 1)',
+              pointBorderColor: 'rgba(255, 99, 132, 1)',
+              pointBackgroundColor: 'white',
+              data: [0, 10, 5, 2, 20, 30, 45]
+            },
+            // Propiedades dataset 2
+            {
+              label: 'Second dataset',
+              backgroundColor: 'rgba(0, 0, 132, .2)',
+              borderColor: 'rgba(0, 0, 132, 1)',
+              pointBorderColor: 'rgba(0, 0, 132, 1)',
+              pointBackgroundColor: 'white',
+              data: [20, 30, 15, 10, 10, 40, 25]
+            },
+             // Propiedades dataset 3
+            {
+              label: 'Third dataset',
+              backgroundColor: 'rgba(230, 0, 0, .2)',
+              borderColor: 'rgba(230, 0, 0, 1)',
+              pointBorderColor: 'rgba(230, 0, 0, 1)',
+              pointBackgroundColor: 'white',
+              data: [15, 35, 20, 30, 15, 50, 35]
+            }
+          ]
+        },
+        // Opciones generales de configuración
+        options: {
+          // Configuración de las leyendas
+          legend: {
+            display: false
+          }
+        }
+
+    });
+    </script>
+  </body>
+</html>

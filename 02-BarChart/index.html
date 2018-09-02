@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ChartJS - Bar Chart</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Bar chart example</h1>
+
+    <div style="width: 700px; margin: 0 auto;">
+      <!-- Canvas en el que pintamos la gráfica -->
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- Importa ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script>
+      // Guardamos nuestro canvas en una variable
+      var ctx = document.getElementById('myChart').getContext('2d');
+
+      // Creamos la gráfica
+      var chart = new Chart(ctx, {
+        // Tipo de gráfica
+        type: 'bar',
+        // Barras horizontales
+        // type: 'horizontalBar',
+        // Datos
+        data: {
+          // Etiquetas
+          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          // Datasets
+          datasets: [
+            {
+              label: 'Sales per month in €',
+              // Varios colores
+              // backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgb(255, 99, 255)', 'rgb(100, 0, 255)', 'green', 'blue', 'red', 'orange' ],
+              // Un color
+              backgroundColor: 'rgba(255, 99, 132, .5)',
+              // Varios colores
+              // borderColor: ['rgb(255, 99, 132)', 'green', 'blue', 'red', 'teal', 'skyblue', 'orange'],
+              // Un color
+              borderColor: 'rgb(255, 99, 132)',
+              borderWidth: 4,
+              data: [8, 10, 5, 2, 20, 30, 45]
+            },
+            {
+              label: 'Sales per month in $',
+              backgroundColor: 'rgba(0, 255, 0, .5)',
+              borderColor: 'rgb(0, 255, 0)',
+              borderWidth: 4,
+              data: [20, 20, 30, 15, 10, 20, 25]
+            }
+          ]
+
+        },
+        // Configuraciones
+        options: {
+          // Añadir un titulo
+          title: {
+            display: true,
+            text: 'Bar chart title'
+          },
+          legend: {
+            display: true
+          },
+          scales: {
+            xAxes: [{
+              // Elimnar label eje X
+              display: false,
+              // Barras apiladas
+              stacked: true,
+              gridLines: {
+                display: false
+              }
+            }],
+            yAxes: [{
+              // Elimnar label eje Y
+              display: false,
+              // Barras apiladas
+              stacked: true,
+              gridLines: {
+                display: true
+              }
+            }]
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ChartJS - Scattered chart</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">Scattered chart example</h1>
+
+    <div style="width: 700px; margin: 0 auto;">
+
+      <!-- Canvas en el que pintamos la gráfica -->
+      <canvas id="myChart"></canvas>
+
+    </div>
+
+    <!-- Importa ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script>
+      // Seleccionamos el elemno canvas y lo preparamos para pintar en él
+      var ctx = document.getElementById('myChart').getContext('2d');
+
+      // Cremaos una gráfica dentro del canvas
+      var chart = new Chart(ctx, {
+        // Tipo de gráfica
+        type: 'scatter',
+
+        // Datos
+        data: {
+          // Este tipo de gráficas no tiene labels
+
+          datasets: [
+            // Propiedades dataset 1
+            {
+              label: 'First dataset',
+              backgroundColor: 'rgb(255, 99 , 132)',
+              borderColor: 'rgb(255, 99 , 132)',
+              // Oculta las líneas
+              showLine: false,
+              // Los puntos necesitan dos coordenadas
+              data: [
+                { x: 10, y: 5 },
+                { x: 5, y: 2 },
+                { x: 6, y: 1 },
+                { x: 20, y: 15 },
+              ]
+            },
+            // Propiedades dataset 2
+            {
+              label: 'First dataset',
+              backgroundColor: 'lightGreen',
+              borderColor: 'lightGreen',
+              // Oculta las líneas
+              showLine: false,
+              // Los puntos necesitan dos coordenadas
+              data: [
+                { x: 20, y: 3 },
+                { x: 7, y: 5 },
+                { x: 10, y: 4 },
+                { x: 12, y: 18 },
+              ]
+            }
+          ]
+        },
+
+        // Opciones generales de configuración
+        options: {
+          legend: {
+            display: true
+          }
+        }
+
+    });
+    </script>
+  </body>
+</html>
